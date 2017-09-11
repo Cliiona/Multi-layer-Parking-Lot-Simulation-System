@@ -1,7 +1,7 @@
 
 
 >Multi-layer Parking Lot Simulation System  
-Sep 2013 – Nov 2013
+Sep 2013 – Nov 2013  
 
 
 
@@ -13,3 +13,4 @@ Sep 2013 – Nov 2013
 IDE: TC2.0 or BC3.0  
 Program can only run on **Win Xp**  
 Attached matrix chinese character bank and our report.
+Main.C is the mian entrance of program.
