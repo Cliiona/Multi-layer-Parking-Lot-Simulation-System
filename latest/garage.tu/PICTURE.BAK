@@ -1,0 +1,133 @@
+#include"picture.h"
+
+
+void Set_Palette_Register(int index,RGB_color_ptr color)
+{
+outp(PALETTE_MASK,0xff);
+outp(PALETTE_REGISTER_WR,index);
+outp(PALETTE_DATA,color->red);
+outp(PALETTE_DATA,color->green);
+outp(PALETTE_DATA,color->blue);
+}
+
+
+void PCX_Init(pcx_picture_ptr image)
+//申请图像大小的内存空间,pcx
+{
+unsigned int a=(unsigned int)(SCREEN_WIDTH * SCREEN_HEIGHT + 1);
+if((image->buffer = (char far *)malloc(a))==NULL)
+{
+   printf("\ncouldn't allocate screen buffer");
+ exit(1);
+ }
+}
+
+
+void PCX_Delete(pcx_picture_ptr image)
+{
+free(image->buffer);
+}
+
+
+void PCX_Load(char *filename, pcx_picture_ptr image,int enable_palette)
+//将文件中的图像压缩数据解压到内存,pcx
+{
+
+FILE *fp;
+int num_bytes,index;
+unsigned int count;
+unsigned char data;
+char far *temp_buffer;
+
+fp = fopen(filename,"rb");
+
+temp_buffer = (char far *)image;
+
+for (index=0; index<128; index++)
+    {
+    temp_buffer[index] = getc(fp);
+    } 
+
+count=0;
+
+
+while(count<=(unsigned int)SCREEN_WIDTH * SCREEN_HEIGHT)
+	 {
+
+	 data = getc(fp);
+
+
+     if (data>=192 && data<=255)
+	{
+
+	num_bytes = data-192;
+
+	data  = getc(fp);
+
+	while(num_bytes-->0)
+	     {
+	     image->buffer[count++] = data;
+
+	     }
+	 }
+     else
+	{
+
+	image->buffer[count++] = data;
+
+	}
+
+     }
+
+fseek(fp,-768L,SEEK_END);
+
+
+for (index=0; index<256; index++)
+    {
+
+    image->palette[index].red   = (getc(fp) >> 2);
+
+
+    image->palette[index].green = (getc(fp) >> 2);
+
+
+    image->palette[index].blue  = (getc(fp) >> 2);
+
+    }
+
+fclose(fp);
+
+
+if (enable_palette)
+   {
+
+   for (index=0; index<256; index++)
+       {
+
+       Set_Palette_Register(index,(RGB_color_ptr)&image->palette[index]);
+
+       }
+
+   }
+
+}
+
+
+void PCX_Show_Buffer(pcx_picture_ptr image)
+//将内存中的图像显示,pcx
+{unsigned char far *video_buffer=(char far *)0xA0000000L;
+
+char far *data;
+data=image->buffer;
+
+
+asm	push ds;
+asm	les di,video_buffer;
+asm	lds si,data;
+asm 	mov cx,SCREEN_HEIGHT*SCREEN_WIDTH/2;
+asm 	cld;
+asm	rep movsw;
+asm	pop ds;
+
+}
+

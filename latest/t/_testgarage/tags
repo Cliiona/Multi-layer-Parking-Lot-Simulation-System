@@ -1,0 +1,177 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.7	//
+ArcDemo	.\BGI\BGIDEMO.C	/^void ArcDemo(void)$/;"	f
+AspectRatio	.\BGI\BGIDEMO.C	/^double AspectRatio;		\/* Aspect ratio of a pixel on the screen*\/$/;"	v
+BMP_Load_Screen	.\DRAW.C	/^void BMP_Load_Screen(char *bmp) $/;"	f
+BMP_file	.\DRAW.H	/^typedef struct BMP_file$/;"	s
+BMP_info	.\DRAW.H	/^typedef struct BMP_info$/;"	s
+Bar3DDemo	.\BGI\BGIDEMO.C	/^void Bar3DDemo(void)$/;"	f
+BarDemo	.\BGI\BGIDEMO.C	/^void BarDemo(void)$/;"	f
+CHAR_HEIGHT	.\DRAW.H	53;"	d
+CHAR_WIDTH	.\DRAW.H	54;"	d
+COMMON_H	.\COMMON.H	2;"	d
+CRTModeDemo	.\BGI\BGIDEMO.C	/^void CRTModeDemo(void)$/;"	f
+Check_Bmp	.\DRAW.C	/^void Check_Bmp(bmp_picture_ptr bmp_ptr)$/;"	f
+CircleDemo	.\BGI\BGIDEMO.C	/^void CircleDemo(void)$/;"	f
+ColorDemo	.\BGI\BGIDEMO.C	/^void ColorDemo(void)$/;"	f
+DRAW_H	.\DRAW.H	2;"	d
+DrawBorder	.\BGI\BGIDEMO.C	/^void DrawBorder(void)$/;"	f
+ESC	.\BGI\BGIDEMO.C	25;"	d	file:
+ErrorCode	.\BGI\BGIDEMO.C	/^int    ErrorCode;		\/* Reports any graphics errors		*\/$/;"	v
+FALSE	.\BGI\BGIDEMO.C	27;"	d	file:
+FillPatternDemo	.\BGI\BGIDEMO.C	/^void FillPatternDemo(void)$/;"	f
+FillStyleDemo	.\BGI\BGIDEMO.C	/^void FillStyleDemo(void)$/;"	f
+FillStyles	.\BGI\BGIDEMO.C	/^char *FillStyles[] = {$/;"	v
+Fonts	.\BGI\BGIDEMO.C	/^char *Fonts[NFONTS] = {$/;"	v
+GetHz16	.\HANZI.C	/^void GetHz16(char ch0,char ch1,char *bitdata)       \/*中文字符读取*\/$/;"	f
+GetHz16	.\HANZI.CPP	/^void GetHz16(char ch0,char ch1,char *bitdata)       \/*中文字符读取*\/$/;"	f
+Get_Plot	.\DRAW.C	/^int Get_Plot(int x,int y)             \/*取点的颜色*\/$/;"	f
+Get_Plot	.\DRAW.CPP	/^int Get_Plot(int x,int y)             \/*取点的颜色*\/$/;"	f
+GraphDriver	.\BGI\BGIDEMO.C	/^int    GraphDriver;		\/* The Graphics device driver		*\/$/;"	v
+GraphMode	.\BGI\BGIDEMO.C	/^int    GraphMode;		\/* The Graphics mode value		*\/$/;"	v
+HANZI_H	.\HANZI.H	2;"	d
+HZ24_Show	.\svga.c	/^void HZ24_Show(int x,int y,char *h,unsigned short int color,unsigned char *p,char *type)      \/*单个汉字显示*\/$/;"	f
+HorizJust	.\BGI\BGIDEMO.C	/^char *HorizJust[] = {$/;"	v
+Initialize	.\BGI\BGIDEMO.C	/^void Initialize(void)$/;"	f
+LeftPress	.\MOUSE.CPP	/^int LeftPress()$/;"	f
+LineRelDemo	.\BGI\BGIDEMO.C	/^void LineRelDemo(void)$/;"	f
+LineStyleDemo	.\BGI\BGIDEMO.C	/^void LineStyleDemo(void)$/;"	f
+LineStyles	.\BGI\BGIDEMO.C	/^char *LineStyles[] = {$/;"	v
+LineToDemo	.\BGI\BGIDEMO.C	/^void LineToDemo(void)$/;"	f
+MAIN_H	.\MAIN.H	2;"	d
+MAXPTS	.\BGI\BGIDEMO.C	882;"	d	file:
+MOUSE_H	.\MOUSE.H	2;"	d
+MainWindow	.\BGI\BGIDEMO.C	/^void MainWindow( char *header )$/;"	f
+MaxColors	.\BGI\BGIDEMO.C	/^int    MaxColors;		\/* The maximum # of colors available	*\/$/;"	v
+MaxPts	.\BGI\BGIDEMO.C	1211;"	d	file:
+MaxX	.\BGI\BGIDEMO.C	/^int    MaxX, MaxY;		\/* The maximum resolution of the screen *\/$/;"	v
+MaxY	.\BGI\BGIDEMO.C	/^int    MaxX, MaxY;		\/* The maximum resolution of the screen *\/$/;"	v
+MiddlePress	.\MOUSE.CPP	/^int MiddlePress()$/;"	f
+MouseGetXY	.\MOUSE.CPP	/^void MouseGetXY(struct mouse *p)$/;"	f
+MouseLoad	.\MOUSE.CPP	/^void MouseLoad(struct mouse *p)$/;"	f
+MouseMath	.\MOUSE.CPP	/^void MouseMath(struct mouse *p)\/*计算鼠标的样子*\/$/;"	f
+MouseOff	.\MOUSE.CPP	/^void MouseOff(struct mouse *p)$/;"	f
+MouseOn	.\MOUSE.CPP	/^void MouseOn(int x,int y,struct mouse *p)$/;"	f
+MouseReset	.\MOUSE.CPP	/^void MouseReset()$/;"	f
+MouseSetX	.\MOUSE.CPP	/^void MouseSetX(int lx,int rx)$/;"	f
+MouseSetXY	.\MOUSE.CPP	/^void MouseSetXY(int x,int y)$/;"	f
+MouseSetY	.\MOUSE.CPP	/^void MouseSetY(int uy,int dy)$/;"	f
+MouseSpeed	.\MOUSE.CPP	/^void MouseSpeed(int vx,int vy)$/;"	f
+MouseStatus	.\MOUSE.CPP	/^int MouseStatus(struct mouse *p)\/*鼠标按键情况*\/$/;"	f
+N	.\process.h	5;"	d
+NFONTS	.\BGI\BGIDEMO.C	32;"	d	file:
+OFF	.\BGI\BGIDEMO.C	30;"	d	file:
+ON	.\BGI\BGIDEMO.C	29;"	d	file:
+PALETTE_DATA	.\DRAW.H	61;"	d
+PALETTE_MASK	.\DRAW.H	58;"	d
+PALETTE_REGISTER_RD	.\DRAW.H	59;"	d
+PALETTE_REGISTER_WR	.\DRAW.H	60;"	d
+PI	.\BGI\BGIDEMO.C	28;"	d	file:
+PROCESS_H	.\process.h	2;"	d
+PTS	.\BGI\BGIDEMO.C	/^struct PTS {$/;"	s	file:
+PaletteDemo	.\BGI\BGIDEMO.C	/^void PaletteDemo(void)$/;"	f
+Pause	.\BGI\BGIDEMO.C	/^void Pause(void)$/;"	f
+PieDemo	.\BGI\BGIDEMO.C	/^void PieDemo(void)$/;"	f
+Plot	.\DRAW.C	/^void Plot(int x, int y, char color) \/*画点函数*\/$/;"	f
+Plot	.\DRAW.CPP	/^void Plot(int x, int y, char color) \/*画点函数*\/$/;"	f
+PolyDemo	.\BGI\BGIDEMO.C	/^void PolyDemo(void)$/;"	f
+PutImageDemo	.\BGI\BGIDEMO.C	/^void PutImageDemo(void)$/;"	f
+PutPixelDemo	.\BGI\BGIDEMO.C	/^void PutPixelDemo(void)$/;"	f
+RGB_BMP	.\DRAW.H	/^}RGB_BMP,*RGB_BMP_ptr;$/;"	t	typeref:struct:RGB_BMP_typ
+RGB_BMP_ptr	.\DRAW.H	/^}RGB_BMP,*RGB_BMP_ptr;$/;"	t	typeref:struct:RGB_BMP_typ
+RGB_BMP_typ	.\DRAW.H	/^typedef struct RGB_BMP_typ$/;"	s
+RandomBars	.\BGI\BGIDEMO.C	/^void RandomBars(void)$/;"	f
+Rectangle	.\DRAW.C	/^void Rectangle(int x1,int y1,int x2,int y2,char color)$/;"	f
+Rectangle	.\DRAW.CPP	/^void Rectangle(int x1,int y1,int x2,int y2,char color)$/;"	f
+ReportStatus	.\BGI\BGIDEMO.C	/^void ReportStatus(void)$/;"	f
+Reserved1	.\DRAW.H	/^	unsigned int Reserved1;$/;"	m	struct:BMP_file
+RightPress	.\MOUSE.CPP	/^int RightPress()$/;"	f
+SCREEN_HEIGHT	.\DRAW.H	55;"	d
+SCREEN_WIDTH	.\DRAW.H	56;"	d
+SET_SVGA_MODE	.\svga.c	/^void SET_SVGA_MODE(int mode)$/;"	f
+SayGoodbye	.\BGI\BGIDEMO.C	/^void SayGoodbye(void)$/;"	f
+Set_BMP_Palette_Register	.\DRAW.C	/^void Set_BMP_Palette_Register(int index,RGB_BMP_ptr color)$/;"	f
+Set_Video_Mode	.\DRAW.C	/^ void Set_Video_Mode(int mode) \/\/设置显示模式的函数$/;"	f
+Set_Video_Mode	.\DRAW.CPP	/^ void Set_Video_Mode(int mode) \/\/设置显示模式的函数$/;"	f
+StatusLine	.\BGI\BGIDEMO.C	/^void StatusLine( char *msg )$/;"	f
+TEXT_MODE	.\COMMON.H	30;"	d
+TEXT_MODE	.\DRAW.H	64;"	d
+TRUE	.\BGI\BGIDEMO.C	26;"	d	file:
+TextDemo	.\BGI\BGIDEMO.C	/^void TextDemo(void)$/;"	f
+TextDirect	.\BGI\BGIDEMO.C	/^char *TextDirect[] = {$/;"	v
+TextDump	.\BGI\BGIDEMO.C	/^void TextDump()$/;"	f
+UserLineStyleDemo	.\BGI\BGIDEMO.C	/^void UserLineStyleDemo(void)$/;"	f
+VGA256	.\COMMON.H	29;"	d
+VGA256	.\DRAW.H	63;"	d
+VertJust	.\BGI\BGIDEMO.C	/^char *VertJust[] = {$/;"	v
+WriteHz16	.\HANZI.C	/^void WriteHz16(char *str ,int x,int y,char color) \/\/ ！显示汉字的函数$/;"	f
+WriteHz16	.\HANZI.CPP	/^void WriteHz16(char *str ,int x,int y,char color) \/\/ ！显示汉字的函数$/;"	f
+Write_Hz16	.\HANZI.C	/^void Write_Hz16(char ch0,char ch1,int x,int y,char color)\/\/中文字符显示$/;"	f
+Write_Hz16	.\HANZI.CPP	/^void Write_Hz16(char ch0,char ch1,int x,int y,char color)\/\/中文字符显示$/;"	f
+_cspeed	.\PROCESS.CPP	/^void _cspeed(int x, int y)        \/*横着的减速带*\/$/;"	f
+adjasp	.\BGI\BGIDEMO.C	536;"	d	file:
+bfOffset	.\DRAW.H	/^	unsigned long bfOffset;$/;"	m	struct:BMP_file
+bfSize	.\DRAW.H	/^	unsigned long bfSize;$/;"	m	struct:BMP_file
+bfType	.\DRAW.H	/^	unsigned int bfType;$/;"	m	struct:BMP_file
+biBitCount	.\DRAW.H	/^	unsigned int biBitCount;$/;"	m	struct:BMP_info
+biClrImportant	.\DRAW.H	/^	unsigned long biClrImportant;$/;"	m	struct:BMP_info
+biClrUsed	.\DRAW.H	/^	unsigned long biClrUsed;$/;"	m	struct:BMP_info
+biCompression	.\DRAW.H	/^	unsigned long biCompression;$/;"	m	struct:BMP_info
+biHeight	.\DRAW.H	/^	unsigned long biHeight;$/;"	m	struct:BMP_info
+biPlanes	.\DRAW.H	/^	unsigned int biPlanes;$/;"	m	struct:BMP_info
+biSize	.\DRAW.H	/^	unsigned long biSize;$/;"	m	struct:BMP_info
+biSizeImage	.\DRAW.H	/^	unsigned long biSizeImage;$/;"	m	struct:BMP_info
+biWidth	.\DRAW.H	/^	unsigned long biWidth;$/;"	m	struct:BMP_info
+biXpolsPerMeter	.\DRAW.H	/^	unsigned long biXpolsPerMeter;$/;"	m	struct:BMP_info
+biYpelsPerMeter	.\DRAW.H	/^	unsigned long biYpelsPerMeter;$/;"	m	struct:BMP_info
+bitmapfile	.\DRAW.H	/^bitmapfile;$/;"	t	typeref:struct:BMP_file
+bitmapinfo	.\DRAW.H	/^bitmapinfo;$/;"	t	typeref:struct:BMP_info
+blue	.\DRAW.H	/^unsigned char blue;$/;"	m	struct:RGB_BMP_typ
+bmp_picture	.\DRAW.H	/^	} bmp_picture, *bmp_picture_ptr;$/;"	t	typeref:struct:bmp_picture_typ
+bmp_picture_ptr	.\DRAW.H	/^	} bmp_picture, *bmp_picture_ptr;$/;"	t	typeref:struct:bmp_picture_typ
+bmp_picture_typ	.\DRAW.H	/^typedef struct bmp_picture_typ$/;"	s
+buffer	.\DRAW.H	/^	char far *buffer;$/;"	m	struct:bmp_picture_typ
+button	.\COMMON.H	/^	int button;$/;"	m	struct:__anon1
+changetextstyle	.\BGI\BGIDEMO.C	/^void changetextstyle(int font, int direction, int charsize)$/;"	f
+cspeed	.\PROCESS.CPP	/^void cspeed(int x,int y)\/*竖着的减速带*\/$/;"	f
+file	.\DRAW.H	/^	bitmapfile file;$/;"	m	struct:bmp_picture_typ
+fill_Rectangle	.\DRAW.CPP	/^void fill_Rectangle(int x1,int y1,int x2,int y2,char color)$/;"	f
+floor	.\PROCESS.CPP	/^void floor()$/;"	f
+freearea	.\PROCESS.CPP	/^void freearea()$/;"	f
+gprintf	.\BGI\BGIDEMO.C	/^int gprintf( int *xloc, int *yloc, char *fmt, ... )$/;"	f
+green	.\DRAW.H	/^unsigned char green;$/;"	m	struct:RGB_BMP_typ
+hline	.\DRAW.CPP	/^void hline(int x1,int x2,int y,char color) \/*画水平线*\/$/;"	f
+hz24_f	.\HANZI.C	/^void hz24_f(char *zw,int x,int y,char color)$/;"	f
+hz24_h	.\HANZI.C	/^void hz24_h(char *zw,int x, int y,char color)  \/\/打印24黑体$/;"	f
+hz24_k	.\HANZI.C	/^void hz24_k(char *zw,int x,int y,char color)    \/\/打印24楷体$/;"	f
+hz24_k	.\HANZI.CPP	/^void hz24_k(char *zw,int x,int y,char color)    \/\/打印24楷体$/;"	f
+hz24_s	.\HANZI.C	/^void hz24_s(char *zw,int x, int  y,char color) \/\/打印24宋体$/;"	f
+info	.\DRAW.H	/^	bitmapinfo info;$/;"	m	struct:bmp_picture_typ
+key	.\COMMON.H	/^	int key;$/;"	m	struct:__anon1
+lamp	.\PROCESS.CPP	/^void lamp(int x,int y,int a)    \/*需要从其他地方的得到a*\/   $/;"	f
+line	.\DRAW.C	/^void line(int x0,int y0,int x1,int y1,char color)     \/*画任意线的函数*\/$/;"	f
+line	.\DRAW.CPP	/^void line(int x0,int y0,int x1,int y1,char color)     \/*画任意线的函数*\/$/;"	f
+main	.\BGI\BGIDEMO.C	/^int main()$/;"	f
+main	.\MAIN.C	/^void main()$/;"	f
+main	.\MAIN.CPP	/^void main()$/;"	f
+mou	.\COMMON.H	/^}mou;$/;"	t	typeref:struct:__anon1
+palette	.\BGI\BGIDEMO.C	/^struct palettetype palette;		\/* Used to read palette info	*\/$/;"	v	typeref:struct:palettetype
+palette	.\DRAW.H	/^	RGB_BMP palette[256];$/;"	m	struct:bmp_picture_typ
+process	.\PROCESS.CPP	/^void process()$/;"	f
+readbmp	.\svga.c	/^void readbmp(int x,int y,char *filename)    \/\/将BMP放入逻辑显存$/;"	f
+red	.\DRAW.H	/^unsigned char red;$/;"	m	struct:RGB_BMP_typ
+reserved	.\DRAW.H	/^unsigned char reserved;$/;"	m	struct:RGB_BMP_typ
+reserved2	.\DRAW.H	/^	unsigned int reserved2;$/;"	m	struct:BMP_file
+selectpage	.\svga.c	/^void selectpage(register char page) \/*换页函数*\/$/;"	f
+test	.\HANZI.C	/^int test(unsigned int a,int k)$/;"	f
+test	.\HANZI.CPP	/^int test(unsigned int a,int k)$/;"	f
+torad	.\BGI\BGIDEMO.C	537;"	d	file:
+x	.\BGI\BGIDEMO.C	/^  int x, y;$/;"	m	struct:PTS	file:
+x	.\COMMON.H	/^	int x;$/;"	m	struct:__anon1
+y	.\BGI\BGIDEMO.C	/^  int x, y;$/;"	m	struct:PTS	file:
+y	.\COMMON.H	/^	int y;$/;"	m	struct:__anon1
+yline	.\PROCESS.CPP	/^void yline()                                         \/*黄色停车线*\/$/;"	f

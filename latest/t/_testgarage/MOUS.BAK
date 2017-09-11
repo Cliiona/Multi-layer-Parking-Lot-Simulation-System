@@ -1,0 +1,11 @@
+#ifndef  MOUS_H
+#define  MOUS_H
+
+#include "main.h"
+
+void mousecheck();
+void mousemove();
+void mouseread(mouse m);
+void back_mouse(char *FILENAME,mouse curmouse,mouse oldmouse,sprite_ptr small);
+
+#endif

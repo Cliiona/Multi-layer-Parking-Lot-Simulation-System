@@ -1,0 +1,706 @@
+#include "jiemian.h"
+/********************界面调控开关函数********************/
+void yes(Pp *a)
+{
+	int flag=1;//homepage
+    int show;
+    Car cr[21];
+	Set_Video_Mode(SVGA);
+    while(1)
+    {
+        if(flag)
+        {
+            switch(flag)
+            {
+                case 1:
+                       Init_jiemian("homepage.bmp");
+                       flag=jiemian_homepage(); break;              //初始化在这
+				
+                case 2:
+					   Init_jiemian("carin.bmp");
+                       flag=jiemian_process(a,&show);
+                       break;
+
+				case 3:
+                       Init_jiemian("5.bmp");
+					   //WriteHz16("ｈｕｈｕｈｕ",600,100,1000);
+					   //Put_eng_Size(600,100,1,1,'a',1000);
+                       //flag=jiemian_manage_login();
+                       break;
+                       
+				case 4:
+                       Init_jiemian("m1.bmp");
+                       //flag=jiemian_introduction();
+                       break;//使用说明
+              //  case 5:flag=jiemian_manage_record();break;
+
+			//	case 6:flag=jiemian_manage_current(a);break;
+             //   case 7:flag=jiemian_manage_query();break;
+                case 8:
+                       Set_Video_Mode(TEXT_MODE);
+                       exit(0);
+                       break;
+                case 9:
+					   Init_park(a);
+					   flag=jiemian_park(a,&show,cr);        // 停车信息确定
+                       break;
+
+            }
+        }
+	   // else return 0;
+    }
+}
+
+/* ********主页********* */
+void Init_jiemian(char *filename)
+{
+  
+    mousecheck();
+    mousemove();
+    readbmp(0,0,filename);
+}
+int jiemian_homepage()    // 主函数只调用这个子函数
+{
+
+    mou curmouse,oldmouse; //定义鼠标结构pointer
+	while(1)
+	{
+		move_mouse(&curmouse,&oldmouse); //移动过程中显示鼠标
+
+        if(curmouse.key)
+{	
+    if(curmouse.x<449&&curmouse.x>169&&curmouse.y>270&&curmouse.y<520)
+		   {
+			   return 2;     //执行模拟
+            
+		   }
+         
+         else if(curmouse.x<458&&curmouse.x>347&&curmouse.y>527&&curmouse.y<578)
+		   {
+			   return 3;       //车位管理登陆
+               
+		   }
+    
+          else if(curmouse.x<645&&curmouse.x>538&&curmouse.y<578&&curmouse.y>535)
+		   {
+			    return 4;
+				//jiemian_instructions(); //说明界面
+                
+		   }
+        
+        else	if(curmouse.x>716&&curmouse.x<828&&curmouse.y>452&&curmouse.y<525)
+		   {
+		       return 8;
+		   }
+		}
+}   
+}
+
+/* ********成员信息********* */
+int jiemian_introduction()
+{
+	//PCX_Load_Scree("intro.pcx",1);//背景
+	return 1;
+}
+
+/* ********车位管理登陆界面****** */
+/*int jiemian_manage_login()
+{
+	mou oldmouse,curmouse;
+	sprite small;
+    int w;
+	char u[10],c[10]; //输入用户名密码
+	char count[2];    //打印剩余次数
+   	static flag=0;    //标记是否输入错误,即便返回主页再回来也会继续累计，直至输入正确或解除锁定
+	BUTTON l[3];
+	BUTTON username={70,138,155,148};   //用户名输入框
+	BUTTON code={70,157,155,167};       //密码输入框
+	BUTTON home={294,177,310,191};
+
+    mouse_all(&curmouse,&oldmouse,&small); //初始化鼠标结构  显示鼠标
+
+    back("log.pcx",&small);
+
+	l[0]=username;
+	l[1]=code;
+	l[2]=home;
+
+	fill_Rectangle(username.x1,username.y1,username.x2,username.y2,7);
+	fill_Rectangle(code.x1,code.y1,code.x2,code.y2,7);
+
+	while(1)
+	{
+		move_mouse(&curmouse,&oldmouse,&small); //移动过程中显示鼠标
+	    if(bioskey(1))
+	    {
+	        w=bioskey(0);//吸收在点击输入框前输入的字符
+	    }
+		if(curmouse.key)
+		{
+			if(mouse_on(l))
+			{
+		        fill_Rectangle(193,130,315,170,1);
+				Erase_Sprite_Size(&small,20,20);
+				strcpy(u,input(l,u));// u是存放用户名的数组,接收input返回的输入内容
+				Behind_Sprite_Size(&small,20,20);
+			}
+			else if(mouse_on(l+1))
+			{
+				fill_Rectangle(193,130,315,170,1);
+				Erase_Sprite_Size(&small,20,20);
+				Behind_Sprite_Size(&small,20,20);
+				strcpy(c,codeput(l+1,c));// c是存放密码的数组
+				if(match(u,c)==1)//验证成功
+				{
+					flag=0;     //只要输入正确，记错清零
+					WriteHz16s("欢迎进入",215,130,20);
+					WriteHz16s("车位管理系统！",195,150,20);
+		            Delay(15);
+                    Sprite_Delete_Size(&small,1);
+		            return 6;//jiemian_current
+				}
+				else
+				{
+					WriteHz16s("对不起，请重试",193,130,20);
+					WriteHz16s("您还有",193,150,20);
+					WriteHz16s("次机会",251,150,20);
+					Blit_String(242,155,20,wrong_times(count,&flag),1); //调用累计输错累计函数并打印剩余次数
+				}
+			}
+			else if(mouse_on(l+2))
+			{
+				Delay(2);
+		        PCX_Load_Screen("homepage.pcx",1);
+                Sprite_Delete_Size(&small,1);
+		        return 1;//homepage
+			}
+		  }
+		else if(flag==5)  //输入5次退出
+		{
+			 fill_Rectangle(193,130,315,170,1);//盖住错误提示
+			 WriteHz16s("即将锁定管理系统",190,140,16);
+			 sleep(2);
+			 Erase_Sprite_Size(&small,20,20);//锁定鼠标
+             flag=jiemian_manage_unlock(lock);
+             return 3;
+		}
+	}
+}
+
+//////////////////////////////////解除锁定界面********** 
+int jiemian_manage_unlock()
+{
+	char ulock[5]; //unlock code
+	BUTTON lock_input={86,80,215,95};
+    PCX_Load_Screen("unlock.pcx",1);
+    do
+    {
+	    fill_Rectangle(70,97,300,150,0); //用黑色盖住上次提示
+	    strcpy(ulock,codeput(&lock_input,ulock)); //画输入框并显示
+	    if(strcmp(ulock,"you")==0)
+		{
+	        WriteHz16s("解锁成功！正在返回登录界面",77,110,20);
+	        Delay(18);
+			break;
+	    }
+	    else
+	    {
+	        WriteHz16s("输入有误，请重新输入",80,110,20);
+	        Delay(1);
+	    }
+	}while(1);
+    return 0;//login
+}
+
+/////////////////////车位使用现况**********
+int jiemian_manage_current(Pp *a)
+{
+    int i;
+    int w; //用来吸收乱打的字符
+    char q[3];
+    mou oldmouse,curmouse;
+	sprite small;
+    BUTTON m[7];
+	BUTTON button_history={125,30,153,63};//车位使用历史
+	BUTTON button_current={155,30,175,63};//车位使用现况
+	BUTTON button_query={190,30,220,63};//车位精确查找
+	BUTTON button_homepage={230,30,262,63};//返回主页
+	BUTTON button_exit={260,30,300,63};//退出系统
+	BUTTON button_lastpage={143,170,163,190};//上一页
+	BUTTON button_nextpage={164,170,183,190};//下一页
+	BUTTON book={75,47,115,59};//预定框
+    BUTTON fresh={20,47,35,59};//刷新
+	BUTTON tempclose={243,173,288,183};//暂停使用
+    m[0]=button_history;
+	m[1]=button_current;
+	m[2]=button_query;
+	m[3]=button_homepage;
+	m[4]=button_exit;
+	m[5]=button_lastpage;
+	m[6]=button_nextpage;
+
+    fill_Rectangle(book.x1,book.y1,book.x2,book.y2,1);
+    fill_Rectangle(tempclose.x1,tempclose.y1,tempclose.x2,tempclose.y2,1);
+    mouse_all(&curmouse,&oldmouse,&small); //初始化鼠标结构  显示鼠标
+    back("current.pcx",&small);
+    current_state(a);//车位状态 会显示不同颜色点和各种车位的数量
+
+    while(1)
+    {
+	    move_mouse(&curmouse,&oldmouse,&small); //移动过程中显示鼠标
+	    if(bioskey(1))  //如果在没点输入框之前有输入，先用w吸收，以免点进输入框后有已积累的字符
+	    {
+	        w=bioskey(0);
+	    }
+	    if(curmouse.key )
+	    {
+	        if(mouse_on(m))
+	        {
+                Sprite_Delete_Size(&small,1);
+	            return 5; //jiemian_manage_record
+	        }
+	        else if(mouse_on(m+2))
+	        {
+                Sprite_Delete_Size(&small,1);
+		        return 7;//query
+	        }
+	        else if(mouse_on(m+3))
+	        {
+                Sprite_Delete_Size(&small,1);
+	            return 1;      //主页
+	        }
+	        else if(mouse_on(m+4))
+	        { 
+                Sprite_Delete_Size(&small,1);
+	            return 8; //退出
+	        }
+	        else if(mouse_on(&book))
+	        {
+		        Erase_Sprite_Size(&small,20,20);
+		        strcpy(q,input(&book,q)); //这就是要的车位号
+		        Behind_Sprite_Size(&small,20,20);
+		        a=book_pause_port(q,a,1); //调用预定车库子函数
+		        current_state(a);
+	        }
+	        else if(mouse_on(&tempclose))
+	        {
+		        Erase_Sprite_Size(&small,20,20);
+		        strcpy(q,input(&tempclose,q));
+		        Behind_Sprite_Size(&small,20,20);
+		        a=book_pause_port(q,a,2); //调用预定车库子函数
+		        current_state(a);
+	        }
+	        else if(mouse_on(&fresh))
+	        {
+	            current_state(a);
+	        }
+	    }//if
+    }//while
+}
+
+//////////////////////车位使用历史********** 
+int jiemian_manage_record()
+{
+	int w; //用来吸收乱打的字符
+    mou oldmouse,curmouse;
+    sprite small;
+    int flag=0;
+	int r=1;   //用于接收print_all返回值，为0说明已到文件结尾
+	BUTTON m[7];
+
+	BUTTON button_history={125,30,153,63};//车位使用历史
+	BUTTON button_current={155,30,175,63};//车位使用现况
+	BUTTON button_query={190,30,220,63};//车位精确查找
+	BUTTON button_homepage={230,30,262,63};//返回主页             主按钮
+	BUTTON button_exit={260,30,300,63};//退出系统
+	BUTTON button_lastpage={143,170,163,190};//上一页
+	BUTTON button_nextpage={164,170,183,190};//下一页
+	BUTTON d[5];
+    BUTTON delete1={290,88,303,100};
+    BUTTON delete2={290,105,303,120};
+    BUTTON delete3={290,122,303,136};
+    BUTTON delete4={290,140,303,153};
+	BUTTON delete5={290,155,303,170};
+    m[0]=button_history;
+	m[1]=button_current;
+	m[2]=button_query;
+	m[3]=button_homepage;
+	m[4]=button_exit;
+	m[5]=button_lastpage;
+	m[6]=button_nextpage;
+	d[0]=delete1;
+	d[1]=delete2;
+	d[2]=delete3;
+	d[3]=delete4;
+	d[4]=delete5;
+	mouse_all(&curmouse,&oldmouse,&small); //初始化鼠标结构  显示鼠标
+	back("history.pcx",&small);
+
+	new_all();
+	print_all(flag);//显示第一页，历史界面是一进去就要有记录的
+
+	while(!bioskey(1))
+	{
+	    move_mouse(&curmouse,&oldmouse,&small); //移动过程中显示鼠标
+
+	    if(curmouse.key)
+	    {
+	        if(mouse_on(m+1))
+	        {
+		        Sprite_Delete_Size(&small,1);
+		        return 6;//current
+	        }
+	        else if(mouse_on(m+2))
+		    {
+	    	    Sprite_Delete_Size(&small,1);
+	    	    return 7;//query
+		    }
+	        else if(mouse_on(m+3))
+	        {
+		        Sprite_Delete_Size(&small,1);
+		        return 1;  //jiemian_homepage
+	        }
+	        else if(mouse_on(m+5))   //上一页
+	        {
+		         if(flag>0) //判断是否可以上一页的依据是页码
+		        {
+				    PCX_Load_Screen("history.pcx",1);
+				    r=print_all(--flag);
+		        }
+	        }
+	        else if(mouse_on(m+6)) //下一页
+	        {
+		        if(r)  //判断是否下一页的依据为是否到文件结尾
+		        {
+				    PCX_Load_Screen("history.pcx",1);
+				    r=print_all(++flag);
+		        }
+	        }
+	        else if(mouse_on(d))
+		    {
+			    delete_one_all(1,flag);//删除当页第一条记录后
+			    PCX_Load_Screen("history.pcx",1);
+			    r=print_all(flag);//显示新的历史记录
+	        }
+	        else if(mouse_on(d+1))
+	        {
+		        delete_one_all(2,flag);//在文件中删除当页第一条记录后
+		        PCX_Load_Screen("history.pcx",1);
+		        r=print_all(flag);//显示新的历史记录
+	        }
+	        else if(mouse_on(d+2))
+	        {
+		        delete_one_all(3,flag);//删除当页第一条记录后
+		        PCX_Load_Screen("history.pcx",1);
+		        r=print_all(flag);//显示新的历史记录
+	        }
+	        else if(mouse_on(d+3))
+	        {
+		        delete_one_all(4,flag);//删除当页第一条记录后
+		        PCX_Load_Screen("history.pcx",1);
+		        r=print_all(flag);//显示新的历史记录
+	        }
+	        else if(mouse_on(d+4))
+	        {
+		        delete_one_all(5,flag);//删除当页第一条记录后
+		        PCX_Load_Screen("history.pcx",1);
+		        r=print_all(flag);//显示新的历史记录
+	        }
+	        else if(mouse_on(m+4))
+	        {
+		        return 8;//exit(0)
+	        }
+	    }
+	}//while
+}
+
+ ////////////////车位精确查找********
+int jiemian_manage_query()
+{
+    FILE * fp;
+    mou oldmouse,curmouse;
+    sprite small;
+    char q[4];  //车号
+    int flag;
+    //int fun;  //功能输出
+    int w; //用来吸收乱打的字符
+	int r=1;//用于接收print_query返回值，为0说明已到文件结尾
+
+	BUTTON m[7];
+	BUTTON button_history={125,30,153,63};//车位使用历史
+	BUTTON button_current={155,30,175,63};//车位使用现况
+	BUTTON button_query={190,30,220,63};//车位精确查找
+	BUTTON button_homepage={230,30,262,63};//返回主页            
+	BUTTON button_exit={260,30,300,63};//退出系统
+	BUTTON button_lastpage={143,170,163,190};//上一页
+	BUTTON button_nextpage={164,170,183,190};//下一页
+    BUTTON frame={75,48,114,59};//输入框
+	BUTTON d[4];
+    BUTTON delete1={273,111,295,123};
+    BUTTON delete2={273,127,295,140};
+    BUTTON delete3={273,144,295,155};
+	BUTTON delete4={273,158,295,170};
+	flag=0;
+    d[0]=delete1;
+    d[1]=delete2;
+    d[2]=delete3;
+	d[3]=delete4;
+    m[0]=button_history;
+	m[1]=button_current;
+	m[2]=button_query;
+	m[3]=button_homepage;
+	m[4]=button_exit;
+	m[5]=button_lastpage;
+	m[6]=button_nextpage;
+
+	mouse_all(&curmouse,&oldmouse,&small); //初始化鼠标结构  显示鼠标
+    back("query.pcx",&small);//查找界面图片
+	fill_Rectangle((frame.x1),frame.y1,(frame.x2),frame.y2,7);
+
+    while(1)
+    {
+	move_mouse(&curmouse,&oldmouse,&small); //移动过程中显示鼠标
+	if(bioskey(1))
+	{
+	    w=bioskey(0);
+	}
+	if(curmouse.key )
+	{
+	  if(mouse_on(m))
+	   {
+	       //fun=6;
+           Sprite_Delete_Size(&small,1);
+	       return 5;
+	       // jiemian_manage_history(m,a);
+	   }
+	  else if(mouse_on(m+1))
+	   {
+	       //fun=5;
+           Sprite_Delete_Size(&small,1);
+	       return 6;
+		  //jiemian_manage_current(m,a);
+	   }
+	  else if(mouse_on(m+3))
+	   {
+	       //Delay(2);
+	      // PCX_Load_Screen("homepage.pcx",1);
+	       //fun=0;
+           Sprite_Delete_Size(&small,1);
+	       return 1;//HOMEPAGE
+	   }
+	  else if(mouse_on(m+4))
+	   {
+	       //fun=10;
+           Sprite_Delete_Size(&small,1);
+	       return 8;
+	   }
+	  else if(mouse_on(m+5))   //上一页
+	   {
+	       if(flag>0)
+	       {
+				PCX_Load_Screen("query.pcx",1);
+				fill_Rectangle((frame.x1),frame.y1,(frame.x2),frame.y2,7);
+				r=print_query(--flag);
+	       }
+	   }
+	   else if(mouse_on(m+6)) //下一页
+	   {
+	       if(r)
+	       {
+				 PCX_Load_Screen("query.pcx",1);
+				 fill_Rectangle((frame.x1),frame.y1,(frame.x2),frame.y2,7);
+				 r=print_query(++flag);
+	       }
+	   }
+	   else if(mouse_on(&frame))
+	   {
+		Erase_Sprite_Size(&small,20,20);
+		strcpy(q,input(&frame,q)); //这就是要查找的车位号
+		PCX_Load_Screen("query.pcx",1);
+		Behind_Sprite_Size(&small,20,20);
+		Blit_String(92,78,0,q,1);
+		query(atoi(q));
+		r=print_query(flag); //读文件 打印到界面
+	   }
+	   else if(mouse_on(d))
+	   {
+		//密钥
+		delete_one_query(1,flag); //删除当页第一条记录后
+		PCX_Load_Screen("query.pcx",1);
+		fill_Rectangle((frame.x1),frame.y1,(frame.x2),frame.y2,7);
+		r=print_query(flag); //显示新的历史记录
+		Blit_String(92,78,0,q,1);
+	   }
+	   else if(mouse_on(d+1))
+	   {
+		//密钥
+		delete_one_query(2,flag);//删除当页第一条记录后
+		PCX_Load_Screen("query.pcx",1);
+		fill_Rectangle((frame.x1),frame.y1,(frame.x2),frame.y2,7);
+		r=print_query(flag);//显示新的历史记录
+		Blit_String(92,78,0,q,1);
+	   }
+	   else if(mouse_on(d+2))
+	   {
+		//密钥
+		delete_one_query(3,flag);//删除当页第一条记录后
+		PCX_Load_Screen("query.pcx",1);
+		fill_Rectangle((frame.x1),frame.y1,(frame.x2),frame.y2,7);
+		r=print_query(flag);//显示新的历史记录
+		Blit_String(92,78,0,q,1);
+	   }
+	   else if(mouse_on(d+3))
+	   {
+		//密钥
+		delete_one_query(4,flag);//删除当页第一条记录后
+		PCX_Load_Screen("query.pcx",1);
+		fill_Rectangle((frame.x1),frame.y1,(frame.x2),frame.y2,7);
+		r=print_query(flag);//显示新的历史记录
+		Blit_String(92,78,0,q,1);
+	   }
+	}
+    }
+}
+*/
+///////////////////////进入模拟***** 
+int jiemian_process(Pp *state,int * show)
+{
+         //显示提示参数
+    mou cm,om;
+    readbmp(708,360,"t1.bmp");  
+    getch();
+    readbmp(708,360,"t2.bmp");
+    while(1)
+    {
+        move_mouse(&cm,&om);
+        if(cm.key)
+        {
+            if(cm.x<119&&cm.x>68&&cm.y<713&&cm.y>659)           //返回主页
+            {
+                return 1;
+             }
+        
+            else if(cm.x<731&&cm.x>680&&cm.y<760&&cm.y>680&&show)
+            {
+                *show=0;                              //关闭提示功能
+                readbmp(708,360,"white.bmp");
+            }
+            else if(cm.x<955&&cm.x>790&&cm.y<124&&cm.y>59)
+
+            { 
+                if(*show) readbmp(708,360,"t3.bmp");      //停车功能开始啦
+                readbmp(200,512,"parkc.bmp");
+                Mouse_reshow(&curmouse);
+                return 9;
+            
+            }
+			else if(cm.x<952&&cm.x>792&&cm.y<230&&cm.y>162)
+			{
+			if(*show) readbmp(708,360,"t4.bmp");
+			}
+
+        }
+    }
+
+
+}
+/////////设置停车信息
+void Init_park(Pp *state)
+{
+    char s1[3],s2[3],s3[3];
+    attain(state);
+    strcpy(s1,transform(state->f1));
+    strcpy(s2,transform(state->f2));
+    strcpy(s3,transform(state->f3));
+	Put_String(313,586,2,2,0x17a0,s1);
+    Put_String(456,586,2,2,0x17a0,s2);
+    Put_String(592,586,2,2,0x17a0,s3);
+
+
+}
+
+int jiemian_park(Pp *state,int *show,Car *cr)
+{
+
+	mou cm,om;
+	int fun=0; //限制功能的先后执行
+	int i=0;
+	char *s1=NULL,*s2=NULL,*s3=NULL;
+	 Rec list=NULL;
+
+	mousecheck();
+	mousemove();
+
+	while(1)
+	{
+		move_mouse(&cm,&om);
+		if(cm.key)
+		{
+			 if(cm.x<119&&cm.x>68&&cm.y<713&&cm.y>659)           //返回主页
+			{
+				return 1;
+			 }
+			 else if(cm.x<731&&cm.x>680&&cm.y<760&&cm.y>680&&show)
+			{
+				*show=0;                              //关闭提示功能
+				readbmp(708,360,"white.bmp");
+			}
+			 else if(cm.x<365&&cm.x>272&&cm.y>566&&cm.y<628)
+			 {
+                 
+				 for(i=0;i<state->f1;i++)
+				 {
+					 init_car(&cr[i]);
+					 assign2(state,&cr[i],list,1);
+					 road_design(&cr[i]);
+				 }
+
+				 fun=1;
+			 }
+			 else if(cm.x<507&&cm.x>413&&cm.y>566&&cm.y<628)
+			 {  
+                 for(i=0;i<state->f2;i++)
+				 {
+					 init_car(&cr[i]);
+					 assign2(state,&cr[i],list,2);
+					 road_design(&cr[i]);
+				 }
+
+				 fun=2;
+			 }
+			 else if(cm.x<645&&cm.x>552&&cm.y>566&&cm.y<628)
+			 {  
+                 for(i=0;i<state->f3;i++)
+				 {
+					 init_car(&cr[i]);
+					 assign2(state,&cr[i],list,3);
+					 road_design(&cr[i]);
+				 }
+
+				 fun=3;
+			 }
+			 else if(cm.x<358&&cm.x>272&&cm.y<726&&cm.y>707&&fun)
+			 {
+				 if(*show) readbmp(708,360,"tend.bmp");
+				 switch(fun)
+				 {
+					 case 1:
+							Delay(10);
+							return 10;      //第一层停车
+                     case 2:
+                            Delay(10);
+                            return 11;   //第二层停车
+                     case 3:Delay(10);
+                            return 12; //第三层停车
+                 }
+             }
+             //else if    预定
+             //else  if  取车
+
+        }
+    }
+
+
+
+}
+

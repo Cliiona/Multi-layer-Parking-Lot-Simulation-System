@@ -1,0 +1,140 @@
+#include"svga.h"
+void SET_SVGA_MODE(int mode)  /*选择模式*/
+{
+ union REGS r;
+ r.x.ax=0x4f02;
+ r.x.bx=mode;
+ int86(0x10,&r,&r);
+}
+void selectpage(int page)   /*换页函数*/
+{
+  union REGS r;
+  r.x.ax=0x4f05;
+  r.x.bx=0x00;
+  r.x.dx=page;
+  int86(0x10,&r,&r);
+}
+void setpixel(int x,int y,int color)       /*画点*/
+{
+
+  unsigned short far *video_buffer=(unsigned short far *)0xA0000000L;
+  long pos=(y*1024L+x);
+  unsigned int page=pos*2/65536L;
+  selectpage(page);
+  *(video_buffer+pos)=color;
+}
+
+
+
+void line(int x1,int y1,int x2,int y2,int color) /*画线*/
+{
+   int dx,dy,x_inc=1,y_inc=1,x,y;
+   int index,error=0;
+   x=x1;y=y1;
+   dx=x2-x1;dy=y2-y1;
+   if(dx<0)
+	{
+	 dx=-dx;
+	 x_inc=-1;
+	}
+   if(dy<0)
+	{
+	 dy=-dy;
+	 y_inc=-1;
+	}
+	if(dx>dy)
+	{
+		 for(index=0;index<=dx;index++)
+		 {
+		  setpixel(x,y,color);
+		  error+=dy;
+		  x+=x_inc;
+		  setpixel(x,y,color);
+			if(error>dx)
+				{
+				 error-=dx;
+				 y+=y_inc;
+				 setpixel(x,y,color);
+				}
+		 }
+	}
+	else
+		{
+		 for(index=0;index<=dy;index++)
+			   {
+				setpixel(x,y,color);
+				error+=dx;
+				y+=y_inc;
+				setpixel(x,y,color);
+				if(error>dy)
+					{
+					 error-=dy;
+					 x+=x_inc;
+					 setpixel(x,y,color);
+					}
+			   }
+		}
+}
+
+void rectangle(int x1,int y1,int x2,int y2,int color)         /*画矩形*/
+{
+  line(x1,y1,x1,y2,color);
+  line(x1,y2,x2,y2,color);
+  line(x2,y2,x2,y1,color);
+  line(x2,y1,x1,y1,color);
+}
+void readbmp(int x,int y,char *filename)    //将BMP放入逻辑显存
+{
+    	int i,j;
+    	FILE *fp;
+    	long Width,Height,oldpage,newpage;
+    	unsigned long position;
+    	short far *buffer;
+    	short far *video_buffer=(short far *)0xA0000000L;    //初始化指向VRAM的指针
+
+    	if((fp=fopen(filename,"rb"))==NULL)
+    	{
+		printf("Cannot install image\n%s",filename);
+        	getch();
+        	return;
+    	}
+
+    	fseek(fp,18,SEEK_SET);
+    	fread(&Width,sizeof(long),1,fp);
+    	fread(&Height,sizeof(long),1,fp);
+
+    	buffer=(short *)malloc(Width*2);       //分配一行图像的存储空间
+
+    	if(buffer==NULL)
+    	{
+        	printf("Malloc error!");
+        	getch();
+        	return;
+    	}
+
+    	fseek(fp,70,SEEK_SET);         
+    	oldpage=((Height-1+y)*(long)1024+x)*2/65536L;    //初始化页码
+    	newpage=oldpage;
+    	selectpage(oldpage);
+
+    	for(i=Height-1;i>=0;i--)
+   	{
+        	fread(buffer,Width*2,1,fp);   //读入一行图像信息到内存
+
+        	for(j=0;j<Width;j++)
+        	{
+            		position=((i+y)*(long)1024+j+x);
+            		newpage=position*2/65536;
+            		if(newpage!=oldpage)            //调用换页函数
+            		{
+                		selectpage(newpage);
+                		oldpage=newpage;
+            		}
+            		*(video_buffer+(i+y)*1024+x+j)=buffer[j];      //将内存中的图像信息逐点读入VRAM      
+        	}
+    	}
+
+    	fclose(fp);
+    	free(buffer);
+}
+

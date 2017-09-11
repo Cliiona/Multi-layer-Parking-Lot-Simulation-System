@@ -1,0 +1,353 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.7	//
+ACTIVE	.\menu.h	11;"	d
+ACTIVE_COLOR	.\menu.h	14;"	d
+BMP_Load_Screen	.\DRAW.C	/^void BMP_Load_Screen(char *bmp) $/;"	f
+BPlot	.\DRAW.CPP	/^void BPlot(int x,int y,char color)  \/\/加粗的点$/;"	f
+Behind_Button	.\MENU.CPP	/^void Behind_Button(windows_ptr win)$/;"	f
+Behind_Sprite	.\DRAW.CPP	/^void Behind_Sprite(sprite_ptr sprite)                 \/\/取子画面背后内容$/;"	f
+Behind_Sprite_Size	.\DRAW.CPP	/^void Behind_Sprite_Size(sprite_ptr sprite,int height,int width)                 \/\/取图片背后内容$/;"	f
+Blit_Char	.\HANZI.CPP	/^void Blit_Char(int xc,int yc,char c,int color,int trans_flag)$/;"	f
+Blit_Char	.\MENU.CPP	/^void Blit_Char(int xc,int yc,char c,int color,int trans_flag)$/;"	f
+Blit_String	.\HANZI.CPP	/^void Blit_String(int x,int y,int color,char *string,int trans_flag)          \/*打出字符串，trans_flag 不明内涵，先填1*\/$/;"	f
+Blit_String	.\MENU.CPP	/^void Blit_String(int x,int y,int color,char *string,int trans_flag)$/;"	f
+CARTOON_H	.\cartoon.h	2;"	d
+CHAR_HEIGHT	.\DRAW.H	6;"	d
+CHAR_HEIGHT	.\menu.h	26;"	d
+CHAR_WIDTH	.\DRAW.H	7;"	d
+CHAR_WIDTH	.\menu.h	27;"	d
+COMMON_H	.\COMMON.H	2;"	d
+Cart	.\COMMON.H	/^}Car，*Cart;$/;"	t	typeref:struct:__anon1
+Check_Bmp	.\DRAW.C	/^void Check_Bmp(bmp_picture_ptr bmp_ptr)$/;"	f
+DRAW_H	.\DRAW.H	2;"	d
+Delay	.\MENU.CPP	/^void Delay(int clicks)  \/\/延迟函数$/;"	f
+Draw_Sprite	.\DRAW.CPP	/^void Draw_Sprite(sprite_ptr sprite)                            \/\/显示子画面$/;"	f
+Draw_Sprite_Size	.\DRAW.CPP	/^void Draw_Sprite_Size(sprite_ptr sprite,int height,int width)       \/\/显示小图片于鼠标位置$/;"	f
+Draw_Windows	.\MENU.CPP	/^void Draw_Windows(windows_ptr win)$/;"	f
+Erase_Button	.\MENU.CPP	/^void Erase_Button(windows_ptr win)$/;"	f
+Erase_Sprite	.\DRAW.CPP	/^void Erase_Sprite(sprite_ptr sprite)                 \/\/显示子画面后面的内容$/;"	f
+Erase_Sprite_Size	.\DRAW.CPP	/^void Erase_Sprite_Size(sprite_ptr sprite,int height,int width)          \/\/显示小图片背后背景内容$/;"	f
+Fill_Screen	.\DRAW.CPP	/^void Fill_Screen(int value)    \/\/设置背景色$/;"	f
+Fill_Screen_Size	.\DRAW.CPP	/^void Fill_Screen_Size(int value,int x0,int y0,int x1,int y1)$/;"	f
+GetHz16	.\HANZI.C	/^void GetHz16(char ch0,char ch1,char *bitdata)       \/*中文字符读取*\/$/;"	f
+GetHz16	.\HANZI.CPP	/^void GetHz16(char ch0,char ch1,char *bitdata)       \/*中文字符读取*\/     \/\/楷体$/;"	f
+GetHz16s	.\HANZI.CPP	/^void GetHz16s(char ch0,char ch1,char *bitdata)       \/*中文字符读取*\/  \/\/宋体$/;"	f
+Get_Palette_Register	.\MENU.CPP	/^void Get_Palette_Register(int index,RGB_color_ptr color)$/;"	f
+Get_Plot	.\DRAW.C	/^int Get_Plot(int x,int y)             \/*取点的颜色*\/$/;"	f
+Get_Plot	.\DRAW.CPP	/^int Get_Plot(int x,int y)             \/*取点的颜色*\/$/;"	f
+HANZI_H	.\HANZI.H	2;"	d
+HZ24_Show	.\svga.c	/^void HZ24_Show(int x,int y,char *h,unsigned short int color,unsigned char *p,char *type)      \/*单个汉字显示*\/$/;"	f
+Judge_Object	.\MENU.CPP	/^void Judge_Object(void)  \/\/检测函数$/;"	f
+MAIN_H	.\MAIN.H	2;"	d
+MANAGE_H	.\MANAGE.H	2;"	d
+MAX	.\menu.h	8;"	d
+MAX_SPRITE_FRAMES	.\DRAW.H	22;"	d
+MAX_SPRITE_FRAMES	.\cartoon.h	25;"	d
+MENU_H	.\menu.h	2;"	d
+MIN	.\menu.h	9;"	d
+MOUSE_H	.\MOUSE.H	2;"	d
+Mouse	.\MOUSE.H	/^typedef struct Mouse{$/;"	s
+NOACTIVE	.\menu.h	12;"	d
+NOACTIVE_COLOR	.\menu.h	15;"	d
+Object_Delete	.\MENU.CPP	/^void Object_Delete(windows_ptr win)$/;"	f
+Object_Init	.\MENU.CPP	/^void Object_Init(windows_ptr ptr,int kind,int x,int y,int move_y,char *word,int color ,int bk_color,int status, char *hotkey,int bk_flag,void (far *windows),int active)$/;"	f
+PALETTE_DATA	.\DRAW.H	21;"	d
+PALETTE_DATA	.\cartoon.h	30;"	d
+PALETTE_DATA	.\menu.h	24;"	d
+PALETTE_DATA	.\picture.h	12;"	d
+PALETTE_MASK	.\DRAW.H	18;"	d
+PALETTE_MASK	.\cartoon.h	27;"	d
+PALETTE_MASK	.\menu.h	21;"	d
+PALETTE_MASK	.\picture.h	9;"	d
+PALETTE_REGISTER_RD	.\DRAW.H	19;"	d
+PALETTE_REGISTER_RD	.\cartoon.h	28;"	d
+PALETTE_REGISTER_RD	.\menu.h	22;"	d
+PALETTE_REGISTER_RD	.\picture.h	10;"	d
+PALETTE_REGISTER_WR	.\DRAW.H	20;"	d
+PALETTE_REGISTER_WR	.\cartoon.h	29;"	d
+PALETTE_REGISTER_WR	.\menu.h	23;"	d
+PALETTE_REGISTER_WR	.\picture.h	11;"	d
+PARK_OK	.\DRAW.H	14;"	d
+PARK_OK	.\cartoon.h	10;"	d
+PARK_PORT	.\COMMON.H	/^}Pp,*PARK_PORT;$/;"	t	typeref:struct:__anon2
+PARK_W	.\DRAW.H	16;"	d
+PARK_W	.\cartoon.h	12;"	d
+PCX_Delete	.\DRAW.CPP	/^void PCX_Delete(pcx_picture_ptr image)                \/\/删除为pcx申请的内存$/;"	f
+PCX_Delete	.\PICTURE.CPP	/^void PCX_Delete(pcx_picture_ptr image)$/;"	f
+PCX_Grab_Bitmap_Screen	.\DRAW.CPP	/^void PCX_Grab_Bitmap_Screen(sprite_ptr sprite,int sprite_frame,int grab_x, int grab_y)           \/\/从屏幕读取子画面$/;"	f
+PCX_Grab_Bitmap_Size_Screen	.\DRAW.CPP	/^void PCX_Grab_Bitmap_Size_Screen(pcx_picture_ptr image,sprite_ptr sprite,int sprite_frame,int grab_x, int grab_y,int height,int width)$/;"	f
+PCX_Init	.\DRAW.CPP	/^void PCX_Init(pcx_picture_ptr image)                           \/\/初始化pcx文件内存空间$/;"	f
+PCX_Init	.\PICTURE.CPP	/^void PCX_Init(pcx_picture_ptr image)$/;"	f
+PCX_Load	.\DRAW.CPP	/^void PCX_Load(char *filename, pcx_picture_ptr image,int enable_palette)    \/\/从pcx图像内存读取子画面到子画面内存$/;"	f
+PCX_Load	.\PICTURE.CPP	/^void PCX_Load(char *filename, pcx_picture_ptr image,int enable_palette)$/;"	f
+PCX_Load1	.\DRAW.CPP	/^void PCX_Load1(char *filename, pcx_picture_ptr image,int enable_palette)$/;"	f
+PCX_Load_Screen	.\DRAW.CPP	/^void PCX_Load_Screen(char *filename,int enable_palette) \/\/将pcx文件存入内存$/;"	f
+PCX_Show_Buffer	.\PICTURE.CPP	/^void PCX_Show_Buffer(pcx_picture_ptr image)$/;"	f
+PI	.\process.h	9;"	d
+PICTURE_H	.\picture.h	2;"	d
+PROCESS_H	.\process.h	2;"	d
+Plot	.\DRAW.C	/^void Plot(int x, int y, char color) \/*画点函数*\/$/;"	f
+Plot	.\DRAW.CPP	/^void Plot(int x, int y, char color) \/*画点函数*\/$/;"	f
+Plot_Xor	.\DRAW.CPP	/^void Plot_Xor (int x,int y,char color)   \/\/异或点$/;"	f
+Pp	.\COMMON.H	/^}Pp,*PARK_PORT;$/;"	t	typeref:struct:__anon2
+RARK_ING	.\DRAW.H	15;"	d
+RARK_ING	.\cartoon.h	11;"	d
+RGB_color	.\DRAW.H	/^}RGB_color,*RGB_color_ptr;$/;"	t	typeref:struct:RGB_color_typ
+RGB_color	.\cartoon.h	/^}RGB_color,*RGB_color_ptr;$/;"	t	typeref:struct:RGB_color_typ
+RGB_color	.\menu.h	/^}RGB_color,*RGB_color_ptr;$/;"	t	typeref:struct:RGB_color_typ
+RGB_color	.\picture.h	/^}RGB_color,*RGB_color_ptr;$/;"	t	typeref:struct:RGB_color_typ
+RGB_color_ptr	.\DRAW.H	/^}RGB_color,*RGB_color_ptr;$/;"	t	typeref:struct:RGB_color_typ
+RGB_color_ptr	.\cartoon.h	/^}RGB_color,*RGB_color_ptr;$/;"	t	typeref:struct:RGB_color_typ
+RGB_color_ptr	.\menu.h	/^}RGB_color,*RGB_color_ptr;$/;"	t	typeref:struct:RGB_color_typ
+RGB_color_ptr	.\picture.h	/^}RGB_color,*RGB_color_ptr;$/;"	t	typeref:struct:RGB_color_typ
+RGB_color_typ	.\DRAW.H	/^typedef struct RGB_color_typ  \/\/调色板色彩结构体$/;"	s
+RGB_color_typ	.\cartoon.h	/^typedef struct RGB_color_typ  \/\/调色板色彩结构体$/;"	s
+RGB_color_typ	.\menu.h	/^typedef struct RGB_color_typ$/;"	s
+RGB_color_typ	.\picture.h	/^typedef struct RGB_color_typ$/;"	s
+Rectangle	.\DRAW.C	/^void Rectangle(int x1,int y1,int x2,int y2,char color)$/;"	f
+Rectangle	.\DRAW.CPP	/^void Rectangle(int x1,int y1,int x2,int y2,char color)$/;"	f
+Rectangle_Xor	.\DRAW.CPP	/^void Rectangle_Xor(int x1,int y1,int x2,int y2,char color)$/;"	f
+SCREEN_HEIGHT	.\DRAW.H	8;"	d
+SCREEN_HEIGHT	.\cartoon.h	14;"	d
+SCREEN_HEIGHT	.\menu.h	20;"	d
+SCREEN_HEIGHT	.\picture.h	7;"	d
+SCREEN_HEIGHT1	.\DRAW.H	10;"	d
+SCREEN_HEIGHT1	.\cartoon.h	16;"	d
+SCREEN_WIDTH	.\DRAW.H	9;"	d
+SCREEN_WIDTH	.\cartoon.h	13;"	d
+SCREEN_WIDTH	.\menu.h	19;"	d
+SCREEN_WIDTH	.\picture.h	8;"	d
+SCREEN_WIDTH1	.\DRAW.H	11;"	d
+SCREEN_WIDTH1	.\cartoon.h	15;"	d
+SET_SVGA_MODE	.\svga.c	/^void SET_SVGA_MODE(int mode)$/;"	f
+SPEED	.\start.h	8;"	d
+SPRITE_HEIGHT	.\DRAW.H	13;"	d
+SPRITE_HEIGHT	.\cartoon.h	23;"	d
+SPRITE_WIDTH	.\DRAW.H	12;"	d
+SPRITE_WIDTH	.\cartoon.h	22;"	d
+START_H	.\start.h	2;"	d
+Set_BMP_Palette_Register	.\DRAW.C	/^void Set_BMP_Palette_Register(int index,RGB_BMP_ptr color)$/;"	f
+Set_Palette_Register	.\DRAW.CPP	/^void Set_Palette_Register(int index,RGB_color_ptr color)        \/\/操作调色板$/;"	f
+Set_Palette_Register	.\MENU.CPP	/^void Set_Palette_Register(int index,RGB_color_ptr color)$/;"	f
+Set_Palette_Register	.\PICTURE.CPP	/^void Set_Palette_Register(int index,RGB_color_ptr color)$/;"	f
+Set_Video_Mode	.\DRAW.C	/^ void Set_Video_Mode(int mode) \/\/设置显示模式的函数$/;"	f
+Set_Video_Mode	.\DRAW.CPP	/^void Set_Video_Mode(int mode) \/\/设置显示模式的函数$/;"	f
+Sheer	.\PROCESS.CPP	/^void Sheer(void)$/;"	f
+Sprite_Delete_Size	.\DRAW.CPP	/^void Sprite_Delete_Size(sprite_ptr sprite,int frame)$/;"	f
+Sprite_Init	.\DRAW.CPP	/^void Sprite_Init(sprite_ptr sprite,int x,int y,int ac,int as,int mc,int ms,void (far *spr)(struct sprite_type *spr))   \/\/子画面的初始化$/;"	f
+Sprite_Init_Size	.\DRAW.CPP	/^void Sprite_Init_Size(sprite_ptr sprite,int x,int y,int ac,int as,int mc,int ms,int height,int width,int frame)     \/\/初始化小图片$/;"	f
+TEXT_MODE	.\COMMON.H	24;"	d
+TEXT_MODE	.\DRAW.H	24;"	d
+TEXT_MODE	.\menu.h	18;"	d
+VGA256	.\COMMON.H	23;"	d
+VGA256	.\DRAW.H	23;"	d
+VGA256	.\menu.h	17;"	d
+WriteHz16	.\HANZI.C	/^void WriteHz16(char *str ,int x,int y,char color) \/\/ ！显示汉字的函数$/;"	f
+WriteHz16	.\HANZI.CPP	/^void WriteHz16(char *str ,int x,int y,char color) \/\/ ！显示楷体汉字的函数 楷体 $/;"	f
+WriteHz16s	.\HANZI.CPP	/^void WriteHz16s(char *str ,int x,int y,char color) \/\/ ！显示汉字的函数 宋体$/;"	f
+Write_Hz16	.\HANZI.C	/^void Write_Hz16(char ch0,char ch1,int x,int y,char color)\/\/中文字符显示$/;"	f
+Write_Hz16	.\HANZI.CPP	/^void Write_Hz16(char ch0,char ch1,int x,int y,char color)\/\/中文字符显示 楷体$/;"	f
+Write_Hz16s	.\HANZI.CPP	/^void Write_Hz16s(char ch0,char ch1,int x,int y,char color)\/\/中文字符显示 宋体$/;"	f
+a	.\COMMON.H	/^int a[3][4][9];            \/\/车位停车状态数组$/;"	m	struct:__anon2
+a_prak	.\COMMON.H	/^int a_prak;                \/\/所有空余车位$/;"	m	struct:__anon2
+active	.\menu.h	/^    int active;\/\/界面对象是否激活$/;"	m	struct:windows
+anim_clock	.\DRAW.H	/^int anim_clock;\/\/子画面时钟$/;"	m	struct:sprite_type
+anim_speed	.\DRAW.H	/^int anim_speed;\/\/子画面速度$/;"	m	struct:sprite_type
+arrow	.\MENU.CPP	/^}mscurstype arrow={0x3fff,0x1fff,0x0fff,0x07ff,$/;"	v
+arrowcurs	.\MENU.CPP	/^mscurstype arrowcurs={16383,8191,4095,2047,1023,511,225,127,63,$/;"	v
+assign	.\PROCESS.CPP	/^void assign(int a[][][],Cart p)         $/;"	f
+attain	.\PROCESS.CPP	/^void attain(PARK_port p)$/;"	f
+back_mouse	.\MOUSE.CPP	/^void back_mouse(char *FILENAME) \/\/调用背景图片以及调用鼠标$/;"	f
+background	.\DRAW.H	/^char far *background;\/\/存放子画面背景的指针$/;"	m	struct:sprite_type
+background	.\menu.h	/^    char far *background; \/\/指向保存背景图像内存的指针$/;"	m	struct:windows
+begin	.\START.CPP	/^void begin()$/;"	f
+bits_per_pixel	.\DRAW.H	/^	char bits_per_pixel;$/;"	m	struct:pcx_header_typ
+bits_per_pixel	.\cartoon.h	/^	char bits_per_pixel;$/;"	m	struct:pcx_header_typ
+bits_per_pixel	.\picture.h	/^	char bits_per_pixel;$/;"	m	struct:pcx_header_typ
+bk_color	.\menu.h	/^    int bk_color;\/\/背景颜色$/;"	m	struct:windows
+bk_flag	.\menu.h	/^    int bk_flag;\/\/是否要保存背景$/;"	m	struct:windows
+blue	.\DRAW.H	/^unsigned char blue;$/;"	m	struct:RGB_color_typ
+blue	.\cartoon.h	/^unsigned char blue;$/;"	m	struct:RGB_color_typ
+blue	.\menu.h	/^	unsigned char blue;$/;"	m	struct:RGB_color_typ
+blue	.\picture.h	/^unsigned char blue;$/;"	m	struct:RGB_color_typ
+bt1	.\MENU.CPP	/^void bt1(windows_ptr win)$/;"	f
+bt2	.\MENU.CPP	/^void bt2(windows_ptr win)$/;"	f
+buffer	.\DRAW.H	/^	char far *buffer;\/\/数据区指针$/;"	m	struct:pcx_picture_typ
+buffer	.\cartoon.h	/^	char far *buffer;\/\/数据区指针$/;"	m	struct:pcx_picture_typ
+buffer	.\picture.h	/^	char far *buffer;$/;"	m	struct:pcx_picture_typ
+bytes_per_line	.\DRAW.H	/^	int bytes_per_line;$/;"	m	struct:pcx_header_typ
+bytes_per_line	.\cartoon.h	/^	int bytes_per_line;$/;"	m	struct:pcx_header_typ
+bytes_per_line	.\picture.h	/^	int bytes_per_line;$/;"	m	struct:pcx_header_typ
+car	.\PROCESS.CPP	/^int car(sprite_ptr sprite,Cart p)$/;"	f
+clo	.\MENU.CPP	/^void clo(windows_ptr win)$/;"	f
+color	.\menu.h	/^    int color;\/\/文字颜色$/;"	m	struct:windows
+curr_frame	.\DRAW.H	/^int curr_frame;\/\/当前子画面帧号码$/;"	m	struct:sprite_type
+current	.\MANAGE.H	8;"	d
+ega_palette	.\DRAW.H	/^	char ega_palette[48];$/;"	m	struct:pcx_header_typ
+ega_palette	.\cartoon.h	/^	char ega_palette[48];$/;"	m	struct:pcx_header_typ
+ega_palette	.\picture.h	/^	char ega_palette[48];$/;"	m	struct:pcx_header_typ
+encoding	.\DRAW.H	/^	char encoding;\/\/编码方式$/;"	m	struct:pcx_header_typ
+encoding	.\cartoon.h	/^	char encoding;\/\/编码方式$/;"	m	struct:pcx_header_typ
+encoding	.\picture.h	/^	char encoding;$/;"	m	struct:pcx_header_typ
+f1	.\COMMON.H	/^int f1;                    \/\/一层即将停车数$/;"	m	struct:__anon2
+f2	.\COMMON.H	/^int f2;                    \/\/二层即将停车数$/;"	m	struct:__anon2
+f3	.\COMMON.H	/^int f3;                    \/\/三层即将停车数$/;"	m	struct:__anon2
+farther	.\menu.h	/^    struct windows *farther;\/\/链表，指向父指针（如弹出菜单选项）$/;"	m	struct:windows	typeref:struct:windows::windows
+fill_Rectangle	.\DRAW.CPP	/^void fill_Rectangle(int x1,int y1,int x2,int y2,char color)$/;"	f
+fill_Rectangle_Xor	.\DRAW.CPP	/^void fill_Rectangle_Xor(int x1,int y1,int x2,int y2,char color)$/;"	f
+frames	.\DRAW.H	/^char far *frames[MAX_SPRITE_FRAMES];\/\/存放子画面点阵的数组时针$/;"	m	struct:sprite_type
+green	.\DRAW.H	/^unsigned char green;$/;"	m	struct:RGB_color_typ
+green	.\cartoon.h	/^unsigned char green;$/;"	m	struct:RGB_color_typ
+green	.\menu.h	/^	unsigned char green;$/;"	m	struct:RGB_color_typ
+green	.\picture.h	/^unsigned char green;$/;"	m	struct:RGB_color_typ
+head	.\MENU.CPP	/^windows_ptr head;$/;"	v
+header	.\DRAW.H	/^	pcx_header header;\/\/pcx头部分$/;"	m	struct:pcx_picture_typ
+header	.\cartoon.h	/^	pcx_header header;\/\/pcx头部分$/;"	m	struct:pcx_picture_typ
+header	.\picture.h	/^	pcx_header header;$/;"	m	struct:pcx_picture_typ
+height	.\DRAW.H	/^	int width,height;  \/\/图像宽度和高度$/;"	m	struct:pcx_header_typ
+height	.\DRAW.H	/^int width,height; \/\/宽度和高度$/;"	m	struct:sprite_type
+height	.\cartoon.h	/^	int width,height;  \/\/图像宽度和高度$/;"	m	struct:pcx_header_typ
+height	.\picture.h	/^	int width,height;$/;"	m	struct:pcx_header_typ
+history	.\MANAGE.H	7;"	d
+hline	.\DRAW.CPP	/^void hline(int x1,int x2,int y,char color) \/*画水平线*\/$/;"	f
+hline_Xor	.\DRAW.CPP	/^void hline_Xor(int x1,int x2,int y,char color) \/\/异或水平线$/;"	f
+horz_res	.\DRAW.H	/^	int horz_res;$/;"	m	struct:pcx_header_typ
+horz_res	.\cartoon.h	/^	int horz_res;$/;"	m	struct:pcx_header_typ
+horz_res	.\picture.h	/^	int horz_res;$/;"	m	struct:pcx_header_typ
+hotkey	.\menu.h	/^    char *hotkey;\/\/热键$/;"	m	struct:windows
+hz24_f	.\HANZI.C	/^void hz24_f(char *zw,int x,int y,char color)$/;"	f
+hz24_h	.\HANZI.C	/^void hz24_h(char *zw,int x, int y,char color)  \/\/打印24黑体$/;"	f
+hz24_k	.\HANZI.C	/^void hz24_k(char *zw,int x,int y,char color)    \/\/打印24楷体$/;"	f
+hz24_k	.\HANZI.CPP	/^void hz24_k(char *zw,int x,int y,char color)    \/\/打印24楷体$/;"	f
+hz24_s	.\HANZI.C	/^void hz24_s(char *zw,int x, int  y,char color) \/\/打印24宋体$/;"	f
+i	.\COMMON.H	/^int i;               \/\/车位层数  $/;"	m	struct:__anon1
+init_car	.\PROCESS.CPP	/^void init_car(Cart p)$/;"	f
+init_pp	.\PROCESS.CPP	/^void init_pp(PARK_PORT p)                                \/\/初始化车库$/;"	f
+j	.\COMMON.H	/^int j;               \/\/车位区域$/;"	m	struct:__anon1
+jiemian_manage_current	.\MANAGE.CPP	/^void jiemian_manage_current()$/;"	f
+jiemian_manage_history	.\MANAGE.CPP	/^void jiemian_manage_history()$/;"	f
+k	.\COMMON.H	/^int k;               \/\/车位号$/;"	m	struct:__anon1
+key	.\MOUSE.H	/^int key;$/;"	m	struct:Mouse
+kind	.\menu.h	/^    int kind;  \/\/界面对象类型$/;"	m	struct:windows
+last	.\MENU.CPP	/^windows_ptr last;$/;"	v
+lin	.\MENU.CPP	/^mscurstype lin={0xe3e3,0xe3e3,0xe3e3,0xe3e3,$/;"	v
+line	.\DRAW.C	/^void line(int x0,int y0,int x1,int y1,char color)     \/*画任意线的函数*\/$/;"	f
+line	.\DRAW.CPP	/^void line(int x0,int y0,int x1,int y1,char color)     \/*画任意线的函数*\/$/;"	f
+main	.\MAIN.C	/^void main()$/;"	f
+main	.\MAIN.CPP	/^void main()$/;"	f
+manufacturer	.\DRAW.H	/^	char manufacturer; \/\/制造厂$/;"	m	struct:pcx_header_typ
+manufacturer	.\cartoon.h	/^	char manufacturer; \/\/制造厂$/;"	m	struct:pcx_header_typ
+manufacturer	.\picture.h	/^	char manufacturer;$/;"	m	struct:pcx_header_typ
+men	.\MENU.CPP	/^void men(windows_ptr win)$/;"	f
+menu	.\MENU.CPP	/^void menu(void)$/;"	f
+motion_clock	.\DRAW.H	/^int motion_clock;\/\/运动时钟$/;"	m	struct:sprite_type
+motion_speed	.\DRAW.H	/^int motion_speed;\/\/运动速度$/;"	m	struct:sprite_type
+mou	.\MOUSE.H	/^}mou,*mouse;$/;"	t	typeref:struct:Mouse
+mouse	.\MOUSE.H	/^}mou,*mouse;$/;"	t	typeref:struct:Mouse
+mousecheck	.\MOUSE.CPP	/^void mousecheck()$/;"	f
+mousemove	.\MOUSE.CPP	/^void mousemove()$/;"	f
+mouseread	.\MOUSE.CPP	/^void mouseread(mou *mouse)$/;"	f
+move	.\menu.h	/^    point move;\/\/界面对象坐标偏移$/;"	m	struct:windows
+next	.\menu.h	/^    struct windows *next;\/\/指向下一个界面对象$/;"	m	struct:windows	typeref:struct:windows::windows
+now	.\MENU.CPP	/^windows_ptr now;$/;"	v
+num_color_planes	.\DRAW.H	/^	char num_color_planes;$/;"	m	struct:pcx_header_typ
+num_color_planes	.\cartoon.h	/^	char num_color_planes;$/;"	m	struct:pcx_header_typ
+num_color_planes	.\picture.h	/^	char num_color_planes;$/;"	m	struct:pcx_header_typ
+num_frames	.\DRAW.H	/^int num_frames;\/\/子画面总帧数$/;"	m	struct:sprite_type
+number	.\COMMON.H	/^char *number;          \/\/车牌号$/;"	m	struct:__anon1
+padding	.\DRAW.H	/^	char padding[58];$/;"	m	struct:pcx_header_typ
+padding	.\cartoon.h	/^	char padding[58];$/;"	m	struct:pcx_header_typ
+padding	.\picture.h	/^	char padding[58];$/;"	m	struct:pcx_header_typ
+palette	.\DRAW.H	/^	RGB_color palette[256];\/\/调色板数据部分$/;"	m	struct:pcx_picture_typ
+palette	.\cartoon.h	/^	RGB_color palette[256];\/\/调色板数据部分$/;"	m	struct:pcx_picture_typ
+palette	.\picture.h	/^	RGB_color palette[256];$/;"	m	struct:pcx_picture_typ
+palette_type	.\DRAW.H	/^	int palette_type;$/;"	m	struct:pcx_header_typ
+palette_type	.\cartoon.h	/^	int palette_type;$/;"	m	struct:pcx_header_typ
+palette_type	.\picture.h	/^	int palette_type;$/;"	m	struct:pcx_header_typ
+pcx_header	.\DRAW.H	/^} pcx_header, *pcx_header_ptr;$/;"	t	typeref:struct:pcx_header_typ
+pcx_header	.\cartoon.h	/^} pcx_header, *pcx_header_ptr;$/;"	t	typeref:struct:pcx_header_typ
+pcx_header	.\picture.h	/^	} pcx_header, *pcx_header_ptr;$/;"	t	typeref:struct:pcx_header_typ
+pcx_header_ptr	.\DRAW.H	/^} pcx_header, *pcx_header_ptr;$/;"	t	typeref:struct:pcx_header_typ
+pcx_header_ptr	.\cartoon.h	/^} pcx_header, *pcx_header_ptr;$/;"	t	typeref:struct:pcx_header_typ
+pcx_header_ptr	.\picture.h	/^	} pcx_header, *pcx_header_ptr;$/;"	t	typeref:struct:pcx_header_typ
+pcx_header_typ	.\DRAW.H	/^typedef struct pcx_header_typ          \/\/pcx图片头文件$/;"	s
+pcx_header_typ	.\cartoon.h	/^typedef struct pcx_header_typ          \/\/pcx图片头文件$/;"	s
+pcx_header_typ	.\picture.h	/^typedef struct pcx_header_typ$/;"	s
+pcx_picture	.\DRAW.H	/^	} pcx_picture, *pcx_picture_ptr;$/;"	t	typeref:struct:pcx_picture_typ
+pcx_picture	.\cartoon.h	/^	} pcx_picture, *pcx_picture_ptr;$/;"	t	typeref:struct:pcx_picture_typ
+pcx_picture	.\picture.h	/^	} pcx_picture, *pcx_picture_ptr;$/;"	t	typeref:struct:pcx_picture_typ
+pcx_picture_ptr	.\DRAW.H	/^	} pcx_picture, *pcx_picture_ptr;$/;"	t	typeref:struct:pcx_picture_typ
+pcx_picture_ptr	.\cartoon.h	/^	} pcx_picture, *pcx_picture_ptr;$/;"	t	typeref:struct:pcx_picture_typ
+pcx_picture_ptr	.\picture.h	/^	} pcx_picture, *pcx_picture_ptr;$/;"	t	typeref:struct:pcx_picture_typ
+pcx_picture_typ	.\DRAW.H	/^typedef struct pcx_picture_typ            \/\/pcx图片结构$/;"	s
+pcx_picture_typ	.\cartoon.h	/^typedef struct pcx_picture_typ$/;"	s
+pcx_picture_typ	.\picture.h	/^typedef struct pcx_picture_typ$/;"	s
+point	.\menu.h	/^    }point;$/;"	t	typeref:struct:point
+point	.\menu.h	/^typedef struct point {$/;"	s
+pre	.\MENU.CPP	/^windows_ptr pre;$/;"	v
+process	.\MANAGE.H	9;"	d
+pull_over	.\PROCESS.CPP	/^void pull_over(char *filename,Cart cr,Cart boom,sprite_ptr sprite,sprite_ptr head ,int f)$/;"	f
+qi	.\MENU.CPP	/^mscurstype qi={0xff89,0xff88,0xff8e,0x8001,$/;"	v
+readbmp	.\PICTURE.CPP	/^void readbmp(int x,int y,char *filename)    \/\/将BMP放入逻辑显存$/;"	f
+readbmp	.\svga.c	/^void readbmp(int x,int y,char *filename)    \/\/将BMP放入逻辑显存$/;"	f
+red	.\DRAW.H	/^unsigned char red;$/;"	m	struct:RGB_color_typ
+red	.\cartoon.h	/^unsigned char red;$/;"	m	struct:RGB_color_typ
+red	.\menu.h	/^	unsigned char red;$/;"	m	struct:RGB_color_typ
+red	.\picture.h	/^unsigned char red;$/;"	m	struct:RGB_color_typ
+reserved	.\DRAW.H	/^	char reserved;$/;"	m	struct:pcx_header_typ
+reserved	.\cartoon.h	/^	char reserved;$/;"	m	struct:pcx_header_typ
+reserved	.\picture.h	/^	char reserved;$/;"	m	struct:pcx_header_typ
+road	.\COMMON.H	/^int road[5][2];      \/\/停车路径$/;"	m	struct:__anon1
+rom_char_set	.\MENU.CPP	/^unsigned char far *rom_char_set=(char far *)0xF000FA6EL;$/;"	v
+selectpage	.\PICTURE.CPP	/^void selectpage(register char page) \/*换页函数*\/$/;"	f
+selectpage	.\svga.c	/^void selectpage(register char page) \/*换页函数*\/$/;"	f
+setlist	.\PROCESS.CPP	/^void setlist(Cart p,PARK_port p,int n)$/;"	f
+sma	.\MENU.CPP	/^void sma(windows_ptr win)$/;"	f
+spr	.\DRAW.H	/^void (far *spr)( struct sprite_type *spr,Cart p);\/\/子画面对象行为函数指针$/;"	m	struct:sprite_type
+sprite	.\DRAW.H	/^}sprite,*sprite_ptr;$/;"	t	typeref:struct:sprite_type
+sprite_SPEED	.\cartoon.h	8;"	d
+sprite_ptr	.\DRAW.H	/^}sprite,*sprite_ptr;$/;"	t	typeref:struct:sprite_type
+sprite_type	.\DRAW.H	/^typedef struct sprite_type  \/\/子画面结构体$/;"	s
+state	.\DRAW.H	/^int state;\/\/当前状态$/;"	m	struct:sprite_type
+status	.\menu.h	/^    int status;\/\/界面对象当前形态状态$/;"	m	struct:windows
+test	.\HANZI.C	/^int test(unsigned int a,int k)$/;"	f
+test	.\HANZI.CPP	/^int test(unsigned int a,int k)$/;"	f
+test	.\PROCESS.CPP	/^void test()                             \/\/尝试小车转弯$/;"	f
+time	.\COMMON.H	/^int time;            \/\/停车时间（秒）$/;"	m	struct:__anon1
+top	.\menu.h	/^    point top;\/\/界面对象坐标起点$/;"	m	struct:windows
+version	.\DRAW.H	/^	char version;\/\/版本$/;"	m	struct:pcx_header_typ
+version	.\cartoon.h	/^	char version;\/\/版本$/;"	m	struct:pcx_header_typ
+version	.\picture.h	/^	char version;$/;"	m	struct:pcx_header_typ
+vert_res	.\DRAW.H	/^	int vert_res;$/;"	m	struct:pcx_header_typ
+vert_res	.\cartoon.h	/^	int vert_res;$/;"	m	struct:pcx_header_typ
+vert_res	.\picture.h	/^	int vert_res;$/;"	m	struct:pcx_header_typ
+vline_Xor	.\DRAW.CPP	/^void vline_Xor(int x,int y1,int y2,char color) \/\/异或竖直线$/;"	f
+width	.\DRAW.H	/^	int width,height;  \/\/图像宽度和高度$/;"	m	struct:pcx_header_typ
+width	.\DRAW.H	/^int width,height; \/\/宽度和高度$/;"	m	struct:sprite_type
+width	.\cartoon.h	/^	int width,height;  \/\/图像宽度和高度$/;"	m	struct:pcx_header_typ
+width	.\picture.h	/^	int width,height;$/;"	m	struct:pcx_header_typ
+win	.\MENU.CPP	/^void win(windows_ptr win)$/;"	f
+win_now	.\MENU.CPP	/^windows_ptr win_now;$/;"	v
+windows	.\menu.h	/^    void (far *windows)(struct windows *win);\/\/指向界面对象事件函数的指针$/;"	m	struct:windows
+windows	.\menu.h	/^    } windows,*windows_ptr;$/;"	t	typeref:struct:windows
+windows	.\menu.h	/^typedef struct windows{$/;"	s
+windows_ptr	.\menu.h	/^    } windows,*windows_ptr;$/;"	t	typeref:struct:windows
+word	.\menu.h	/^    char *word;\/\/名称，标注$/;"	m	struct:windows
+x	.\DRAW.H	/^	int x,y;$/;"	m	struct:pcx_header_typ
+x	.\DRAW.H	/^int x,y; \/\/当前位置$/;"	m	struct:sprite_type
+x	.\MOUSE.H	/^int x;$/;"	m	struct:Mouse
+x	.\cartoon.h	/^	int x,y;$/;"	m	struct:pcx_header_typ
+x	.\menu.h	/^    int x;\/\/x坐标$/;"	m	struct:point
+x	.\picture.h	/^	int x,y;$/;"	m	struct:pcx_header_typ
+x_old	.\DRAW.H	/^int x_old,y_old; \/\/先前位置$/;"	m	struct:sprite_type
+y	.\DRAW.H	/^	int x,y;$/;"	m	struct:pcx_header_typ
+y	.\DRAW.H	/^int x,y; \/\/当前位置$/;"	m	struct:sprite_type
+y	.\MOUSE.H	/^int y;$/;"	m	struct:Mouse
+y	.\cartoon.h	/^	int x,y;$/;"	m	struct:pcx_header_typ
+y	.\menu.h	/^    int y;\/\/y坐标$/;"	m	struct:point
+y	.\picture.h	/^	int x,y;$/;"	m	struct:pcx_header_typ
+y_old	.\DRAW.H	/^int x_old,y_old; \/\/先前位置$/;"	m	struct:sprite_type

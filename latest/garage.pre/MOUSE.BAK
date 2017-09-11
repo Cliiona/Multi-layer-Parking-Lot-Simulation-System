@@ -1,0 +1,16 @@
+#ifndef  MOUSE_H
+#define  MOUSE_H
+
+#include "common.h"
+#include"draw.h"
+
+typedef struct Mouse{
+int x;
+int y;
+int key;
+}mou,*mouse;
+void mousecheck();
+void mousemove();
+void mouseread(mou *mouse);
+
+#endif

@@ -1,0 +1,38 @@
+#ifndef PROCESS_H
+#define PROCESS_H
+
+#include"common.h"
+#include"draw.h"
+#include"mouse.h"
+#include"hanzi.h"
+#include"jiemian.h"
+
+void lamp();
+void c_lamp(Pp *p,int a);
+void Load_LED(int x,int y,char *s,int state,int color);
+void wipeout(int x,int y,int state);
+char* transform(int n);
+void Draw_Arrow(int x,int y,int m);
+int change(int i,int j,int k);
+void bk();
+void Draw_Car(sp *ob);
+void init_car(Car* p);
+void init_pp(Pp * p,Rec s);
+void init_Pp(Pp *p);
+void init_sp(sp *p,int ax,int ay);
+void attain(Pp * p);
+void attain2(Pp * p);
+void assign(Pp * s,Car * p,Rec list);
+void assign3(Pp * s,Car * p);
+void assign2(Pp * s,Car * p,Rec list,int n);
+void road_design(Cart p);
+void road_design2(Car *p);  
+void car_in2(Car *cr,Pp *state,Rec list);
+void car(sp *ob,Car * p,int,int *);
+void pull_over(Pp *state,Car *p,sp * ,int);
+void build_sprite(sprite * spo);
+void parkp(Pp *state); 
+int controlcar(); 
+int end_page();
+void login();
+#endif

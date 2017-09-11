@@ -1,0 +1,325 @@
+#include"hanzi.h"
+void GetHz16(char ch0,char ch1,char *bitdata)       /*中文字符读取*/
+{
+    FILE *stream;
+    long fpos;
+    fpos=32L*(((unsigned char)ch0-161)*94+((unsigned char)ch1-161)); //取中文在文件中的偏移
+    if((stream=fopen("hzk16","rb"))==NULL)
+    {
+        printf("Open hzk16 error!\n");
+        exit (0);
+    }
+	fseek(stream,fpos,SEEK_SET);//到该中文便宜位置
+    fread(bitdata,32,1,stream); //读取32个字节
+    fclose(stream); //关闭字库文件
+}
+
+void Write_Hz16(char ch0,char ch1,int x,int y,char color)//中文字符显示
+{   
+    unsigned char bit[8]={128,64,32,16,8,4,2,1};
+    register int i,j,k;
+    unsigned vpos;
+    char bitdata[32];
+	GetHz16(ch0,ch1,bitdata);//调用文字读取函数
+    for(i=0;i<16;i++)
+        for(j=0;j<8;j++)
+        {
+            if(bitdata[2*i]&bit[j])//判断当前为是否为1
+                Plot(x+j,i+y,color);//向屏幕写入一个点
+            if(bitdata[2*i+1]&bit[j])
+				Plot(x+8+j,i+y,color);
+        }
+}
+
+void WriteHz16(char *str ,int x,int y,char color) // ！显示汉字的函数
+{
+    int num,i,j,xx;
+	unsigned char s0,s1;
+    num=strlen(str);
+    xx=x;
+    for(i=0;i<num;i+=2)
+    {
+		Write_Hz16(str[i],str[i+1],xx,y,color);
+        xx+=16;
+    }
+
+}
+
+int test(unsigned int a,int k)
+{
+a<<=(k-1);
+if(a&0x80)
+return (1);
+else
+return (0);
+}
+
+void hz24_k(char *zw,int x,int y,char color)    //打印24楷体
+{  unsigned char far *buffer=(char far *)0xA0000000L;
+   register unsigned int n=0;
+
+   while(n!=strlen(zw))
+   {
+
+   register unsigned int i=0,j=0,l=0;
+   register unsigned long xx=0;
+   register unsigned long yy=0;
+   register unsigned long num=0;
+   FILE *fp;
+   char *wm;
+	if((zw[n]&0x80)==0)//判断是否是扩展ASCII
+	{
+		if(zw[n]==' ')
+		{
+			x=x+24;
+			n++;
+		}
+		else
+		{
+			fp=fopen("hzk24t","rb+");//打开西文字库文件
+			if(fp==NULL)
+			{
+				exit(0);
+			}
+		num=188+zw[n]-33;
+		fseek(fp,(72)*num,0);
+		fread(wm,72,1,fp);
+		fclose(fp);
+		for(i=0;i<24;i++)
+		{
+		      for(j=0;j<3;j++)
+			 {for(l=1;l<=8;l++)
+			  if(test(wm[i*3+j],l)==1)
+			   {
+			   buffer[(x+i)+(y+j*8+l-1)*320]=color;
+			}
+			 }
+		}
+	 n+=1;}
+	 }else{
+		 fp=fopen("hzk24k","rb+");//打开楷体字库文件
+		 if(fp==NULL){exit(0);}
+		 zw[n]=zw[n]-0xa0-15;
+		 zw[n+1]=zw[n+1]-0xa0;
+		 num=(zw[n]-1)*94+(zw[n+1]-1);
+		 fseek(fp,(72)*num,0);
+		 fread(wm,72,1,fp);
+		 fclose(fp);
+		  for(i=0;i<24;i++)
+		   {
+		      for(j=0;j<3;j++)
+			 {for(l=1;l<=8;l++)
+			  if(test(wm[i*3+j],l)==1)
+			   {
+			   buffer[(x+i)+(y+j*8+l-1)*320]=color;
+			}
+			 }
+
+		    }
+n+=2;}
+x=x+25;
+}
+
+}
+void hz24_h(char *zw,int x, int y,char color)  //打印24黑体
+ { unsigned char far *buffer=(char far *)0xA0000000L;
+   register unsigned int n=0;
+
+   while(n!=strlen(zw))
+   {
+
+   register unsigned int i=0,j=0,l=0;
+   register unsigned long xx=0;
+   register unsigned long yy=0;
+   register unsigned long num=0;
+   FILE *fp;
+   char *wm;
+	if((zw[n]&0x80)==0)//判断是否是扩展ASCII
+	{
+		if(zw[n]==' ')
+		{
+			x=x+24;
+			n++;
+		}
+		else
+		{
+			fp=fopen("hzk24t","rb+");//打开西文字库文件
+			if(fp==NULL)
+			{
+				exit(0);
+			}
+		num=188+zw[n]-33;
+		fseek(fp,(72)*num,0);
+		fread(wm,72,1,fp);
+		fclose(fp);
+		for(i=0;i<24;i++)
+		{
+		      for(j=0;j<3;j++)
+			 {for(l=1;l<=8;l++)
+			  if(test(wm[i*3+j],l)==1)
+			   {
+			   buffer[(x+i)+(y+j*8+l-1)*320]=color;
+			}
+			 }
+		}
+	 n+=1;}
+	 }else{
+		 fp=fopen("hzk24h","rb+");//打开字库文件
+		 if(fp==NULL){exit(0);}
+		 zw[n]=zw[n]-0xa0-15;
+		 zw[n+1]=zw[n+1]-0xa0;
+		 num=(zw[n]-1)*94+(zw[n+1]-1);
+		 fseek(fp,(72)*num,0);
+		 fread(wm,72,1,fp);
+		 fclose(fp);
+		  for(i=0;i<24;i++)
+		   {
+		      for(j=0;j<3;j++)
+			 {for(l=1;l<=8;l++)
+			  if(test(wm[i*3+j],l)==1)
+			   {
+			   buffer[(x+i)+(y+j*8+l-1)*320]=color;
+			}
+			 }
+
+		    }
+n+=2;}
+x=x+25;
+}
+
+}
+void hz24_s(char *zw,int x, int  y,char color) //打印24宋体
+{  unsigned char far *buffer=(char far *)0xA0000000L;
+   register unsigned int n=0;
+
+   while(n!=strlen(zw))
+   {
+
+   register unsigned int i=0,j=0,l=0;
+   register unsigned long xx=0;
+   register unsigned long yy=0;
+   register unsigned long num=0;
+   FILE *fp;
+   char *wm;
+	if((zw[n]&0x80)==0)//判断是否是扩展ASCII
+	{
+		if(zw[n]==' ')
+		{
+			x=x+24;
+			n++;
+		}
+		else
+		{
+			fp=fopen("hzk24t","rb+");//打开西文字库文件
+			if(fp==NULL)
+			{
+				exit(0);
+			}
+		num=188+zw[n]-33;
+		fseek(fp,(72)*num,0);
+		fread(wm,72,1,fp);
+		fclose(fp);
+		for(i=0;i<24;i++)
+		{
+		      for(j=0;j<3;j++)
+			 {for(l=1;l<=8;l++)
+			  if(test(wm[i*3+j],l)==1)
+			   {
+			   buffer[(x+i)+(y+j*8+l-1)*320]=color;
+			}
+			 }
+		}
+	 n+=1;}
+	 }else{
+		 fp=fopen("hzk24s","rb+");//打开字库文件
+		 if(fp==NULL){exit(0);}
+		 zw[n]=zw[n]-0xa0-15;
+		 zw[n+1]=zw[n+1]-0xa0;
+		 num=(zw[n]-1)*94+(zw[n+1]-1);
+		 fseek(fp,(72)*num,0);
+		 fread(wm,72,1,fp);
+		 fclose(fp);
+		  for(i=0;i<24;i++)
+		   {
+		      for(j=0;j<3;j++)
+			 {for(l=1;l<=8;l++)
+			  if(test(wm[i*3+j],l)==1)
+			   {
+			   buffer[(x+i)+(y+j*8+l-1)*320]=color;
+			}
+			 }
+
+		    }
+n+=2;}
+x=x+25;
+}
+
+}
+void hz24_f(char *zw,int x,int y,char color)
+{  unsigned char far *buffer=(char far *)0xA0000000L;
+   register unsigned int n=0;
+
+   while(n!=strlen(zw))
+   {
+
+   register unsigned int i=0,j=0,l=0;
+   register unsigned long xx=0;
+   register unsigned long yy=0;
+   register unsigned long num=0;
+   FILE *fp;
+   char *wm;
+	if((zw[n]&0x80)==0)//判断是否是扩展ASCII
+	{
+		if(zw[n]==' ')
+		{
+			x=x+24;
+			n++;
+		}
+		else
+		{
+			fp=fopen("hzk24t","rb+");//打开西文字库文件
+			if(fp==NULL)
+			{
+				exit(0);
+			}
+		num=188+zw[n]-33;
+		fseek(fp,(72)*num,0);
+		fread(wm,72,1,fp);
+		fclose(fp);
+		for(i=0;i<24;i++)
+		{
+		      for(j=0;j<3;j++)
+			 {for(l=1;l<=8;l++)
+			  if(test(wm[i*3+j],l)==1)
+			   {
+			   buffer[(x+i)+(y+j*8+l-1)*320]=color;
+			}
+			 }
+		}
+	 n+=1;}
+	 }else{
+		 fp=fopen("hzk24f","rb+");//打开字库文件
+		 if(fp==NULL){exit(0);}
+		 zw[n]=zw[n]-0xa0-15;
+		 zw[n+1]=zw[n+1]-0xa0;
+		 num=(zw[n]-1)*94+(zw[n+1]-1);
+		 fseek(fp,(72)*num,0);
+		 fread(wm,72,1,fp);
+		 fclose(fp);
+		  for(i=0;i<24;i++)
+		   {
+		      for(j=0;j<3;j++)
+			 {for(l=1;l<=8;l++)
+			  if(test(wm[i*3+j],l)==1)
+			   {
+			   buffer[(x+i)+(y+j*8+l-1)*320]=color;
+			}
+			 }
+
+		    }
+n+=2;}
+x=x+25;
+}
+
+}
+
